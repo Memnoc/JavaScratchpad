@@ -52,7 +52,7 @@ public class Main {
 
         int intArray6[] = {34, 56, 77, 89, 92, 33};
         int sum1 = 0;
-        for (int counter : intArray5) {
+        for (int counter : intArray6) {
             sum1 = sum1 += counter;
         }
         System.out.println("Sum is = " + sum1);
@@ -67,16 +67,24 @@ public class Main {
         // - avoid incrementing the counter
 
         String shoppingList[] = {"Milk", "Bread", "Butter", "Fish", "Veggies"};
-        for (String item: shoppingList){
+        for (String item : shoppingList) {
             System.out.println(item);
         }
 
         // Arrays used with methods
 
-        
+        int bucky[] = {3, 4, 5, 6, 7};
+        change(bucky);
+        for (int counter : bucky) {
+            System.out.println(counter);
+        }
+    }
 
-
-
+    public static void change(int x[]) {
+        for (int counter = 0; counter < x.length; counter++) {
+            x[counter] += 5;
+        }
     }
 }
+
 
