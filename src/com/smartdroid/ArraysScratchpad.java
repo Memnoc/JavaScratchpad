@@ -1,13 +1,12 @@
 package com.smartdroid;
 
-import java.util.Arrays;
 import java.util.Random;
 
-public class Main {
+public class ArraysScratchpad {
 
     public static void main(String[] args) {
 
-        // Arrays examples: Manual Initialization
+        // ArraysScratchpad examples: Manual Initialization
 
         int intArray[];
         intArray = new int[10];
@@ -18,7 +17,7 @@ public class Main {
         intArray[3] = 97;
         System.out.println(intArray[1]);
 
-        // Arrays examples: Array Initializer
+        // ArraysScratchpad examples: Array Initializer
 
         int intArray2[] = {45, 67, 90, 21, 33};
         System.out.println(intArray2[4]);
@@ -72,7 +71,7 @@ public class Main {
             System.out.println(item);
         }
 
-        // Arrays used with methods -> the method adds five more numbers to intArray7[]
+        // ArraysScratchpad used with methods -> the method adds five more numbers to intArray7[]
 
         int intArray7[] = {3, 4, 5, 6, 7};
         addNumbers(intArray7);
@@ -87,7 +86,7 @@ public class Main {
 
         }
 
-        // Multi-dimensional Arrays
+        // Multi-dimensional ArraysScratchpad
         // template: dataType+arrayNem+[][];
         // Super useful for table and coordinates with rows and columns
 
@@ -120,7 +119,7 @@ public class Main {
             System.out.println();
         }
 
-        // Arrays as counters
+        // ArraysScratchpad as counters
         // Dice-rolling -> store the numbers each time in an array
         // Face = index
         // Value = freq
@@ -139,26 +138,26 @@ public class Main {
 
         // Copy an Array
         int originalArray[] = new int[10];
-        int[] numberCopy = Arrays.copyOf(originalArray, 5);
+        int[] numberCopy = java.util.Arrays.copyOf(originalArray, 5);
         for (int row : numberCopy) {
             System.out.print(row);
         }
         System.out.println("\n");
 
         // Copy an array within a range-values
-        int[] numberCopyRange = Arrays.copyOfRange(originalArray, 3, 6);
+        int[] numberCopyRange = java.util.Arrays.copyOfRange(originalArray, 3, 6);
         for (int row : numberCopyRange) {
             System.out.print(row);
         }
 
         // Print a whole Array
-        System.out.println(Arrays.toString(originalArray));
+        System.out.println(java.util.Arrays.toString(originalArray));
 
         // Fill an Array
         // Essentially, puts the second argument in all the indexes of the given array
         int[] arrayFill = new int[100];
-        Arrays.fill(arrayFill, 23);
-        System.out.println(Arrays.toString(arrayFill));
+        java.util.Arrays.fill(arrayFill, 23);
+        System.out.println(java.util.Arrays.toString(arrayFill));
 
         // Sorting an array
 
@@ -168,15 +167,29 @@ public class Main {
 
             toSort[i] = (int) (Math.random() * 100);
         }
-        Arrays.sort(toSort);
-        System.out.println(Arrays.toString(toSort));
+        java.util.Arrays.sort(toSort);
+        System.out.println(java.util.Arrays.toString(toSort));
 
         // Quick Binary Search
         // Return the index of the value IF it finds it, otherwise returns -1
-        int whereIs50 = Arrays.binarySearch(toSort, 51);
+        int whereIs50 = java.util.Arrays.binarySearch(toSort, 51);
         System.out.println(whereIs50);
 
+    }
 
+    // Although an Array could not be resized, there is a non-elegant way of doing it
+
+    public static int[] sampleArray = new int[10];
+
+
+    public static void resize() {
+
+        int[] original = sampleArray;
+
+        sampleArray = new int[12];
+        for (int counter : original) {
+            sampleArray = original;
+        }
     }
 }
 
