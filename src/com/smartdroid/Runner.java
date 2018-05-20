@@ -1,5 +1,6 @@
 package com.smartdroid;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Runner {
@@ -34,6 +35,8 @@ public class Runner {
                     searchItem();
                     break;
                 case 6:
+                    processArrayList();
+                case 7:
                     quit = true;
                     break;
             }
@@ -59,29 +62,42 @@ public class Runner {
     }
 
     public static void modifyItem() {
-        System.out.println("Enter the item number:");
-        int itemNumber = scanner.nextInt();
-        scanner.nextLine();
+        System.out.println("Current item name:");
+        String itemNumber = scanner.nextLine();
         System.out.println("Enter replacement item:");
         String newItem = scanner.nextLine();
-        list.replaceItem(itemNumber - 1, newItem);
+        list.replaceItem(itemNumber, newItem);
     }
 
     public static void removeItem() {
         System.out.print("Enter item number: ");
-        int itemNo = scanner.nextInt();
+        String itemNo = scanner.nextLine();
         scanner.nextLine();
-        list.removeItem(itemNo-1);
+        list.removeItem(itemNo);
 
     }
 
     public static void searchItem() {
         System.out.println("Enter the item to search:");
         String itemName = scanner.nextLine();
-        if ((list.findItem(itemName) != null)) {
+        if ((list.onFile(itemName))) {
             System.out.println("Found " + itemName + " in our grocery list");
         } else {
             System.out.println("Item is not in the list");
         }
+    }
+
+    public static void processArrayList() {
+
+        // 1
+        ArrayList<String> newArray = new ArrayList<>();
+        newArray.addAll(list.getListOfString());
+
+        // 2
+        ArrayList<String> nextArray = new ArrayList<>(list.getListOfString());
+
+        // 3 (with conversion)
+        String[] myArray = new String[list.getListOfString().size()];
+        myArray = list.getListOfString().toArray(myArray);
     }
 }
